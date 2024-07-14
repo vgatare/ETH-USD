@@ -1,0 +1,37 @@
+<!-- templates/index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Trading Bot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Crypto Trading Bot Dashboard</h1>
+        
+        <div class="signals">
+            <h2>Current Signals</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Timestamp</th>
+                        <th>Signal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for signal in signals.iterrows() %}
+                    <tr>
+                        <td>{{ signal[0] }}</td>
+                        <td>{{ signal[1]['signal'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</body>
+</html>
